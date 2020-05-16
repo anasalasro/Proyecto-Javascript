@@ -4,72 +4,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Proyecto JavaScript</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="sidebar">
-        <a href="#Profesores" class="" onclick="openCity(event, 'London')" id="defaultOpen"><i class="fa fa-fw fa-home"></i> Profesores</a>
-        <a href="#Empresas" onclick="openCity(event, 'Paris')"><i class="fa fa-fw fa-wrench"></i> Empresas</a>
-        <a href="#Alumnos" onclick="openCity(event, 'Paris')"><i class="fa fa-fw fa-user"></i> Alumnos</a>
-        <a href="#Asignaciones" onclick="openCity(event, 'Paris')"><i class="fa fa-fw fa-envelope"></i> Asignaciones</a>
-        <a href="#Actividades" onclick="openCity(event, 'Paris')"><i class="fa fa-fw fa-envelope"></i> Actividades realizadas</a>
+
+    <div class="menu">
+        <button class="paginas" onclick="abrirPagina(event, 'Profesores')"><i class='fas fa-chalkboard-teacher'></i>
+            Profesores</button>
+        <button class="paginas" onclick="abrirPagina(event, 'Empresas')"><i class='fas fa-briefcase'></i>
+            Empresas</button>
+        <button class="paginas" onclick="abrirPagina(event, 'Alumnos')"><i class='fas fa-book-reader'></i>
+            Alumnos</button>
+        <button class="paginas" onclick="abrirPagina(event, 'Asignaciones')"><i class='fas fa-address-card'></i>
+            Asignaciones</button>
+        <button class="paginas" onclick="abrirPagina(event, 'Actividades')" id="defaultOpen"><i class='far fa-edit'></i>
+            Actividades Semanales</button>
     </div>
 
-    <div class="main">
-        <h2>Sidebar with Icons</h2>
-        <p>This side navigation is of full height (100%) and always shown.</p>
-        <p>Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut
-            quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et.
-            Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-        <p>Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut
-            quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et.
-            Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+    <div id="Profesores" class="contenido">
+        <h3>Profesores</h3>
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Open Modal</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <div id="Alumnos" class="contenido">
+        <h3>Alumnos</h3>
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Open Modal</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <div id="Asignaciones" class="contenido">
+        <h3>Asignaciones</h3>
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Open Modal</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <div id="Actividades" class="contenido">
+        <h3>Actividades Semanales</h3>
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Open Modal</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+
+        </div>
     </div>
 </body>
-<body>
+<script type="text/javascript" src="codigo.js"></script>
 
-    <h2>Vertical Tabs</h2>
-    <p>Click on the buttons inside the tabbed menu:</p>
-
-    <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">London</button>
-        <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
-    </div>
-
-    <div id="London" class="tabcontent">
-        <h3>London</h3>
-        <p>London is the capital city of England.</p>
-    </div>
-
-    <div id="Paris" class="tabcontent">
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p>
-    </div>
-
-    <div id="Tokyo" class="tabcontent">
-        <h3>Tokyo</h3>
-        <p>Tokyo is the capital of Japan.</p>
-    </div>
-
-    <script>
-        function openCity(evt, cityName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-
-        // Get the element with id="defaultOpen" and click on it
-        document.getElementById("defaultOpen").click();
-    </script>
 </html>
