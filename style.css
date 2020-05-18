@@ -1,16 +1,12 @@
 * {
             box-sizing: border-box
         }
-
-        body {
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        }
         .menu {
             float: left;
             border: 1px solid rgb(155, 155, 155);
             background-color: #12685c56;
             width: 30%;
-            height: 601px;
+            height: 722px;
         }
         .menu button {
             display: block;
@@ -44,50 +40,194 @@
             border: 1px solid #ccc;
             width: 70%;
             border-left: none;
-            height: 601px;
+            height: 722px;
         }
-        .btn{
-           background-color: rgb(114, 114, 114);
-            color: whitesmoke;
-            border: none;
+        .botonAñadir{
+             display: inline-block;
+              padding: 10px 15px;
+              font-size: 15px;
+              cursor: pointer;
+              text-align: center;
+              text-decoration: none;
+              outline: none;
+              color: #fff;
+              background-color: #12685c56;
+              border: none;
+              border-radius: 12px;
+              box-shadow: 0 5px #999;
+        }
+        .botonAñadir:hover {background-color: #666;
+            cursor: pointer;}
+
+        .botonAñadir:active {
+          background-color: #12685c56;
+          box-shadow: 0 5px #666;
+          transform: translateY(4px);
+          }
+
+        /*Dialogo modal*/
+        .modalAlumno, .modalProfesor, .modalEmpresa, .modalActividad, .modalAsignacion {
+          position: fixed;
+          z-index: 1;
+          padding-top: 100px;
+          left: 0;
+          top: 0;
+          width: 100%; 
+          height: 100%;
+          overflow: auto;
+          background-color: rgb(0,0,0); 
+          background-color: rgba(0,0,0,0.4);
+        }
+        .modalAlumno{
+          display: none;
+        }
+        .modalProfesor{
+          display: none;
+        }
+        .modalAsignacion{
+          display: none;
+        }
+        .modalEmpresa{
+          display: none;
+        }
+        .modalActividad{
+          display: none;
+        }
+
+        /* Modal Content */
+        .contenidoModal { 
+          background-color: #fefefe;
+          margin: auto;
+          padding: 20px;
+          border: 1px solid #888;
+          border-radius: 5px 5px 5px 5px;
+          width: 60%;
+        }
+
+        /* The Close Button */
+        .cerrar {
+          color: #aaaaaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
+
+        .cerrar:hover, .cerrar:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+       
+        label tr{
+          display: block;
+          
+        }
+        label{
+          padding-right: 11px;
+        }
+        .ContenidoTablaAct{
+          display: block;
+          border: black 1px solid;
+          border-collapse: initial;
+        }
+        .fecha{
+          width:5%;
+          height:20px;
+        width:10%;
+          height:20px;
+          border:1px solid #f6f6f6;
+          border-radius:3px;
+          background-color:#f6f6f6;			
+          margin:8px 0;
+          resize:none;
+          display: initial;
+        }
+        input, textarea, select {
+        width:20%;
+          height:20px;
+          border:1px solid #f6f6f6;
+          border-radius:3px;
+          background-color:#f6f6f6;			
+          margin:8px 0;
+          resize:none;
+          display: initial;
+        }
+        
+        .ContenidoTablaAct{
+          width : 150px;
+          margin: 0;
+
+          -webkit-box-sizing: border-box; 
+            -moz-box-sizing: border-box;
+                  box-sizing: border-box;
+        }
+        .centroTrabajoDocente {
+          width : 150px;
+          margin: 0;
+          -webkit-box-sizing: border-box; 
+            -moz-box-sizing: border-box; 
+                  box-sizing: border-box;
+        }
+        .actividadesRealizadas{
+          width:100%;
+          height:50px;
+          border:1px solid #f6f6f6;
+          border-radius:3px;
+          background-color:#f6f6f6;			
+          margin:8px 0;
+          
+          resize:none;
+          display:block;
+        }
+        .botonAñadir{
+             display: inline-block;
+              padding: 10px 15px;
+              font-size: 15px;
+              cursor: pointer;
+              text-align: center;
+              text-decoration: none;
+              outline: none;
+              color: #fff;
+              background-color: #12685c56;
+              border: none;
+              border-radius: 12px;
+              box-shadow: 0 5px #999;
+        }
+        .botonAñadir:hover {background-color: #666;
+            cursor: pointer;}
+
+        .botonAñadir:active {
+          background-color: #12685c56;
+          box-shadow: 0 5px #666;
+          transform: translateY(4px);
+          }
+        .formularioDia{
+          width: 100%;
+          padding-left: 12%;
+          
+        }
+        .centro1{
+          width: 500px;
+        }
+        .centro1{
+          margin-bottom: 10%;
+        }
+
+        .modal-content{
+          width: 850px;
+          height: 715px;
+        }
+        .modal-content1{
+          width: 100%;
+          margin: auto;
+          background-color: white;
+        }
+        .cabecera {
+          padding: 1%;
+          text-align: center;
+          background: #12685c56;
+          color: white;
         }
 
 
-        /*Dialogo modal Actividades*/
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
