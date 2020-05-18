@@ -3,13 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto JavaScript</title>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Proyecto-Javascript/css/style.css">
 </head>
 
 <body>
@@ -31,7 +32,28 @@
         <button class="paginas" onclick="abrirPagina(event, 'Actividades')" id="defaultOpen"><i class='far fa-edit'></i>
             Actividades Semanales</button>
     </div>
+<div id="Inicio" class="contenido">
+<div class="slidercontainer">
+    <div class="showSlide fade">
+        <img src="../Proyecto-Javascript/imagenes/img1.jpg" />
+        <div class="content">Lorem ipsum dolor sit amet</div>
+    </div>
+    <div class="showSlide fade">
+        <img src="../Proyecto-Javascript/imagenes/img2.jpg" />
+        <div class="content">Lorem ipsum dolor sit amet</div>
+    </div>
 
+    <div class="showSlide fade">
+        <img src="../Proyecto-Javascript/imagenes/img3.jpg" />
+        <div class="content">Lorem ipsum dolor sit amet</div>
+    </div>
+    <!-- Navigation arrows -->
+    <a class="left" onclick="nextSlide(-1)">❮</a>
+    <a class="right" onclick="nextSlide(1)">❯</a>
+</div>
+
+   
+</div>
     <div id="Profesores" class="contenido">
         <h3>Profesores</h3>
         <table class="table table-hover">
@@ -51,9 +73,9 @@
             </tbody>
         </table>
 
-        <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="modalProfesor"
             aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div id="modalProfesor" class="modal-dialog" role="document">
                 <div class="modal-content1">
                     <div class="modal-header text-center">
                         <h4 class="modal-title w-100 font-weight-bold">Añadir un Profesor</h4>
@@ -87,16 +109,93 @@
     <div id="Empresas" class="contenido">
         <span class="cerrar" onclick="cerrarEmpresa()">&times;</span>
         <h3>Empresas</h3>
-        <button id="boton" onclick="abrirEmpresa()" class="botonAñadir">Añadir</button>
-        <!--<div id="ventana" class="modalEmpresa">
-            <div class="contenidoModal">
-                <span class="cerrar">&times;</span>
-                <p>Aqui se añadiran las empresas</p>
-                <button id="botonCerrar" class="botonAñadir">Cerrar</button>
-                <button onclick="añadirEmpresa()" class="botonAñadir">Añadir Empresa</button>
-            </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Web</th>
+                    <th>Dirección</th>
+                    <th>telefono</th>
+                    <th>Email</th>
+                    <th>Tutor</th>
+                    <th>Email Tutor</th>
         
-        </div>-->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>LG</td>
+                    <td> https://www.lg.com/es</td>
+                    <td>Calle Chile 1, 28290, Las Rozas, Madrid.</td>
+                    <td>695832165</td>
+                    <td>lg@gmail.com</td>
+                    <td>Juan</td>
+                    <td>juanlg@gmail.com</td>
+        
+                </tr>
+        
+            </tbody>
+        </table>
+        
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="botonAñadir" data-toggle="modal" data-target="#modalEmpresa">Añadir</button>
+    
+    <!-- Modal -->
+    <div id="modalEmpresa" class="modal fade" role="document">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content2">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Añadir Empresa</h4>
+                </div>
+            <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="form34">Nombre</label>
+                <input type="text" id="form34" class="form-control validate">
+            
+            </div>
+            <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="form34">Apellidos</label>
+                <input type="text" id="form34" class="form-control validate">
+            
+            </div>
+            <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="form34">Dirección</label>
+                <input type="text" id="form34" class="form-control validate">
+            
+            </div>
+            <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="form34">Telefono</label>
+                <input type="number" id="form34" class="form-control validate">
+            
+            </div>
+            <div class="md-form mb-5">
+                
+                <label data-error="wrong" data-success="right" for="defaultForm-email">Email</label>
+                <input type="email" id="defaultForm-email" class="form-control validate">
+            
+                
+            </div>
+            <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="form34">Tutor</label>
+                <input type="text" id="form34" class="form-control validate">
+            
+            </div>
+            <div class="md-form mb-5">
+            
+                <label data-error="wrong" data-success="right" for="defaultForm-email">Email Tutor</label>
+                <input type="email" id="defaultForm-email" class="form-control validate">
+            
+            </div>
+                <div class="modal-footer">
+                    <button class="botonAñadir" onclick="añadirEmpresa()">Añadir</button>
+                    <button type="button" class="botonAñadir" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
     </div>
 
 
@@ -125,10 +224,10 @@
             </tbody>
         </table>
         <!-- Button trigger modal-->
-        <button type="button" class="botonAñadir" data-toggle="modal" data-target="#modalCart">Añadir</button>
+        <button type="button" class="botonAñadir" data-toggle="modal" data-target="#modalAlumno">Añadir</button>
 
         <!-- Modal: modalCart -->
-        <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="modalAlumno" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content1">
@@ -178,19 +277,70 @@
 
     <div id="Asignaciones" class="contenido">
         <span class="cerrar" onclick="cerrarAsignacion()">&times;</span>
+        
         <h3>Asignaciones</h3>
 
-    </div>
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="modalAsignacion"
+    aria-hidden="true">
+    <div id="modalAsignacion" class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Añadir Asignaciones</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                    <label data-error="wrong" data-success="right" for="form34">Alumno</label>
+                    <input type="text" id="orangeForm-name" class="form-control validate">
+                    
+                </div>
+                <div class="md-form mb-5">
+                    <label data-error="wrong" data-success="right" for="form34">Empresa</label>
+                    <input type="text" id="orangeForm-name" class="form-control validate">
+                </div>
+                <div class="md-form mb-5">
+                    <label data-error="wrong" data-success="right" for="form34">Tutor</label>
+                    <input type="text" id="orangeForm-name" class="form-control validate">
+                </div>
+                <div class="md-form mb-5">
+                    <label data-error="wrong" data-success="right" for="">Fecha de Inicio</label>
+                    <input type="date" id="orangeForm-name" class="form-control validate">
+                </div>
+                <div class="md-form mb-5">
+                    <label data-error="wrong" data-success="right" for="">Fecha fin</label>
+                    <input type="date" id="orangeForm-name" class="form-control validate">
+                </div>
+                <div class="md-form mb-5">
+                    <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
+                    <input type="email" id="orangeForm-email" class="form-control validate">
+                   
+                </div>
 
+               
+
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button class="botonAñadir">Añadir</button>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+        <div class="text-left">
+            <a href="" class="botonAñadir" data-toggle="modal" data-target="#modalRegisterForm">Añadir</a>
+        </div>
+</div>
     <div id="Actividades" class="contenido">
         <h3>Actividades Semanales</h3>
         <!-- Button trigger modal -->
-        <button type="button" class="botonAñadir" data-toggle="modal" data-target="#basicExampleModal">
+        <button type="button" class="botonAñadir" data-toggle="modal" data-target="#modalActividad">
             Añadir
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="modalActividad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -294,6 +444,6 @@
     </div>
     
 </body>
-<script type="text/javascript" src="codigo.js"></script>
+<script type="text/javascript" src="../Proyecto-Javascript/javascript/codigo.js"></script> 
 
 </html>
