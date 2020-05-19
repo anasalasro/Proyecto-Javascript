@@ -28,19 +28,8 @@ var botonCerrar = document.getElementById("botonCerrar");
 // para cerrar
     var span = document.getElementsByClassName("cerrar")[0];
 
-// Abrir el modal al pulsar el boton
-boton.onclick = function() {
-            modal.style.display = "block";
-}
-//cerrar el modal al pulsar el boton cerrar
-botonCerrar.onclick = function(){
-    modal.style.display="none";
-}
 
-// cerrar el modal al pinchar en la X
-span.onclick = function() {
-                modal.style.display = "none";
-}
+
 
 function añadirActividadSemanal() {
     var dia1 = document.getElementById("1dia").Value;
@@ -59,12 +48,12 @@ function Actividades(dia, actividades, horas) {
     this.actividades = actividades;
     this.horas = horas;   
 }
-function Profesor(nombre, apellidos){
-    this.nombre = nombre;
-    this.apellidos = apellidos;
+function Profesor(nombreProfesor, apellidosProfesor){
+    this.nombreProfesor = nombreProfesor;
+    this.apellidosProfesor = apellidosProfesor;
 }
-function Empresa(nombre, web, direccion, telefono, email, tutor, emailTutor ){
-    this.nombre = nombre;
+function Empresa(nombreEmpresa, web, direccion, telefono, email, tutor, emailTutor ){
+    this.nombreEmpresa = nombreEmpresa;
     this.web = web;
     this.direccion = direccion;
     this.telefono = telefono;
@@ -79,30 +68,89 @@ function Asignacion(nombre, empresa, tutor, fechaInicio, fechaFin) {
     this.fechaInicio = fechaInicio;
     this.fechaFin = fechaFin;
 }
-function Alumno(nombre, apellidos, curso, ciclo) {
-    this.nombre = nombre;
-    this.apellidos = apellidos;
+function Alumno(nombreAlumno, apellidosAlumno, curso, ciclo) {
+    this.nombreAlumno = nombreAlumno;
+    this.apellidosAlumno = apellidosAlumno;
     this.curso = curso;
     this.ciclo = ciclo;
     
 }
+function cerrarActividad() {
+    document.getElementById("modalActividad").style.display = "none";
+
+}
+function cerrarEmpresa() {
+    document.getElementById("modalEmpresa").style.display = "none";
+
+}
+function cerrarAlumno() {
+    document.getElementById("modalAlumno").style.display = "none";
+
+}
+function cerrarProfesor() {
+    document.getElementById("modalProfesor").style.display = "none";
+
+}
+function cerrarAsignacion() {
+    document.getElementById("modalAsignacion").style.display = "none";
+
+}
+function añadirProfesor() {
+    Profesor(document.getElementById("inNuevoNombreProfesor").value, document.getElementById("inNuevoApellidosProfesor").value);
+    document.getElementById("lbNombreProfesor").innerHTML = this.nombreProfesor;
+    document.getElementById("lbApellidosProfesor").innerHTML = this.apellidosProfesor;
+}
+
+function añadirAlumno() {
+    document.getElementById("modalAlumno").style.display = "block";
+
+}
+function añadirAsignacion() {
+    document.getElementById("modalAsignacion").style.display = "block";
+
+}
+function añadirEmpresa() {
+    document.getElementById("modalEmpresa").style.display = "block";
+
+}
+function añadirActividad() {
+    document.getElementById("modalEmpresa").style.display = "block";
+
+}
+
+
+
+
+
+
+
+
+
 
 /*slide imagenes*/
-var slide_index = 1;
-displaySlides(slide_index);
-function nextSlide(n) {
-    displaySlides(slide_index += n);
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
 }
+
 function currentSlide(n) {
-    displaySlides(slide_index = n);
+    showSlides(slideIndex = n);
 }
-function displaySlides(n) {
+
+function showSlides(n) {
     var i;
-    var slides = document.getElementsByClassName("showSlide");
-    if (n > slides.length) { slide_index = 1 }
-    if (n < 1) { slide_index = slides.length }
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-    slides[slide_index - 1].style.display = "block";
-}  
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+}
