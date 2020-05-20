@@ -2,7 +2,7 @@
 function abrirPagina(evt, nombre) {
     var i, contenido, paginas;
     contenido = document.getElementsByClassName("contenido");
-    for (i = 0; i < contenido.length; i++) { //nos
+    for (i = 0; i < contenido.length; i++) { 
         contenido[i].style.display = "none";
     }
     paginas = document.getElementsByClassName("paginas");
@@ -12,7 +12,7 @@ function abrirPagina(evt, nombre) {
     document.getElementById(nombre).style.display = "block";
     evt.currentTarget.className += " active";
 }
-// Muestra por defecto la pagina de Actividades
+// Muestra por defecto la pagina de Inicio con la id="defaultOpen"
 document.getElementById("defaultOpen").click();
 
 //slide imagenes
@@ -52,32 +52,105 @@ function mostrarImegenes(n) {
     puntos[primeraImagen - 1].className += " active";
 }
 
+/*Para la hoja de actividades he creado varios objetos y listas de arrays,
+donde he guardado algunos datos predefimidos para poder buscarlos y rellenar la hoja,
+por ejemplo, en el objeto profesor, primero me creo el objeto profesor le añado los datos
+y al hacerle push lo añado al array(en este caso es la listaProfesores).
+Más adelante he creado una funcion para añadir los datos de profesores,
+en la que llamando a los objetos de la listaProfesores para insertarlos */
+
+// Datos por defecto para rellenar la hoja de actividades
+//listas de arrays para guardar datos
+this.ListaGrados = ["Medio", "Superior"];
+this.ListaCiclos = ["ASIR"];
+this.ListaTutores = ["Luis", "Jose", "Julia"];
+this.ListaCentros = ["LG; Cartuja", "Intel; Cartuja","Fujitsu; Centro",];
+
+this.ListaProfesores = new Array();
+//creacion de objetos y push para añadir a las listas
+var profesor = new Object();
+profesor.Nombre = "Pedro";
+profesor.Apellidos = "Santos";
+this.ListaProfesores.push(profesor);
+
+profesor = new Object();
+profesor.Nombre = "Manuel";
+profesor.Apellidos = "Garcia";
+this.ListaProfesores.push(profesor);
+
+profesor = new Object();
+profesor.Nombre = "Antonio";
+profesor.Apellidos = "Rueda";
+this.ListaProfesores.push(profesor);
+
+this.ListaAlumnos = new Array();
+
+var alumno = new Object();
+alumno.Nombre = "Antonio";
+alumno.Apellidos = "Suarez Martinez";
+alumno.Ciclo = 0;
+alumno.Grado = 1;
+alumno.Profesor = 0;
+alumno.Tutor = 2;
+alumno.Centro = 3;
+this.ListaAlumnos.push(alumno);
+
+alumno = new Object();
+alumno.Nombre = "Pedro";
+alumno.Apellidos = "Santos Martinez";
+alumno.Ciclo = 0;
+alumno.Grado = 1;
+alumno.Profesor = 1;
+alumno.Tutor = 1;
+alumno.Centro = 2;
+this.ListaAlumnos.push(alumno);
+
+alumno = new Object();
+alumno.Nombre = "Manuel";
+alumno.Apellidos = "Rodriguez Lama";
+alumno.Ciclo = 0;
+alumno.Grado = 0;
+alumno.Profesor = 2;
+alumno.Tutor = 0;
+alumno.Centro = 1;
+this.ListaAlumnos.push(alumno);
+
+//funcion profesor para que muestre el nombre y apellido al crearlos en la tabla de profesores
+function Profesor(nombreProfesor, apellidosProfesor) {
+    this.nombreProfesor = nombreProfesor;
+    this.apellidosProfesor = apellidosProfesor;
+}
 //Añadir Profesor
 function añadirProfesor() {
-    // Añade una fila nueva a la tabla con el nuevo profesor
-    añadirProfesorTabla(document.getElementById("inNuevoNombreProfesor").value,
-        document.getElementById("inNuevoApellidosProfesor").value);
-}
+  Profesor(document.getElementById("inNuevoNombreProfesor").value,
+      document.getElementById("inNuevoApellidosProfesor").value);
 
+    añadirProfesorTabla(this.nombreProfesor, this.apellidosProfesor); // Añade una fila nueva a la tabla con el nuevo profesor
+
+    // Añade el nuevo profesor a la lista de profesores creada previamente
+    var profesor = new Object();
+    profesor.Nombre = this.nombreProfesor;
+    profesor.Apellidos = this.apellidosProfesor;
+    this.ListaProfesores.push(profesor);
+}
 function añadirProfesorTabla(nombre, apellidos) {
-    //Creamos los elementos que se van añadir en las nuevas filas que crearemos de la tabla.
+//Creamos los elementos que se van añadir en las nuevas filas que crearemos de la tabla.
     var tbBody = document.getElementById("tbBodyProfesores");
 
     var tr = document.createElement("tr");
     var tdNombre = document.createElement("td");
     var tdApellidos = document.createElement("td");
-    //le asignamos a cada variable el contenido a añadir
+//le asignamos a cada variable el contenido a añadir
     tdNombre.className = "nombre";
     tdApellidos.className = "apellidos";
 
     tdNombre.innerHTML = nombre;
     tdApellidos.innerHTML = apellidos;
-    //nos añade el nuevo profesor a nuestra tabla previamente creada pero nos crea filas nuevas
+//nos añade el nuevo profesor a nuestra tabla previamente creada pero nos crea filas nuevas
     tr.appendChild(tdNombre);
     tr.appendChild(tdApellidos);
     tbBody.appendChild(tr);
 }
-
 //Añadir Empresa
 function añadirEmpresa() {
     añadirEmpresaTabla(document.getElementById("inNuevaEmpresaNombre").value,
@@ -185,5 +258,38 @@ function añadirAsignacionTabla(nombre, tutorLaborar, tutorDocente, fechaInicio,
     tr.appendChild(tdfechaInicio);
     tr.appendChild(tdfechaFin);
     tbBody.appendChild(tr);
+}
+
+//Ficha de actividades
+//evento de cambiar de alumno en el select 
+function cambiarAlumnoActividad(select) {
+    mostrarActividadSemanal(select.selectedIndex);
+}
+this.ListaAlumnos.forEach(function (elemento, key) {
+    var nombre = elemento.Nombre + " " + elemento.Apellidos; 
+    //añade al select como nombre del almuno (nombre y apellido)
+    //agrega nuevas opciones en el select alumnos
+    document.getElementById("slAlumnoActividad").add(new Option(nombre, key));
+});
+
+document.getElementById("slAlumnoActividad").selectedIndex = 1;//el alumno seleccionado y que aparecerá por defecto será el 1
+mostrarActividadSemanal(document.getElementById("slAlumnoActividad").selectedIndex);//nos muestra las actividades del alumno seleccionado
+
+this.ListaProfesores.forEach(function (profesor) {
+    añadirProfesorTabla(profesor.Nombre, profesor.Apellidos);//recorre la lista de profesores y el objeto profesor y los añade a la tabla
+});
+// "Funcion de Actividad Semanal"
+function mostrarActividadSemanal(alumnoNumero) {
+
+    document.getElementById("lbActCiclo").value = this.ListaCiclos[this.ListaAlumnos[alumnoNumero].Ciclo];//coge el ciclo introducido en la lista equivalente al alumno y se lo añade en actividades al alumno
+    document.getElementById("lbActGrado").value = this.ListaGrados[this.ListaAlumnos[alumnoNumero].Grado];//coge el grado introducido en la lista equivalente al alumno y se lo añade en actividades al alumno
+    var profesor = this.ListaProfesores[this.ListaAlumnos[alumnoNumero].Profesor];//
+    document.getElementById("lbActProfesor").value = profesor.Nombre + " " + profesor.Apellidos; //coge el profesor introducido en la lista equivalente al alumno y se lo añade en actividades al alumno
+    document.getElementById("lbActTutorLaboral").value = this.ListaTutores[this.ListaAlumnos[alumnoNumero].Tutor]; //coge el tutor introducido een la lista equivalente al alumno y se lo añade en actividades al alumno
+
+    var centroInfo = this.ListaCentros[this.ListaAlumnos[alumnoNumero].Centro];
+    var datos = centroInfo.split(";");//diferencia entre lo que esta antes del ; y despues en la lista de centros donde nos da el nombre de la empresa y el lugar de trabajo
+    document.getElementById("lbActEmpresa").value = datos[0];//antes del ; el valor es el 0, añadimos ese valor a Empresa y nos muestra el nombre de la Empresa
+    document.getElementById("lbActCentroTrabajo").value = datos[1];// despues de ; el valor es 1 en este caso solo hay 2 valores, añadimos ese valos al centro de trabajo y nos muestra el lugar
 }
 
