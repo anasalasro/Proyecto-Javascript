@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../Proyecto-Javascript/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -18,38 +18,51 @@
     </div>
 
     <div class="menu">
-        <button class="paginas" onclick="abrirPagina(event, 'Inicio')" id="defaultOpen"><i class='fas fa-home'></i>
-            Inicio</button>
-        <button class="paginas" onclick="abrirPagina(event, 'Profesores')"><i class='fas fa-chalkboard-teacher'></i>
-            Profesores</button>
-        <button class="paginas" onclick="abrirPagina(event, 'Empresas')"><i class='fas fa-briefcase'></i>
-            Empresas</button>
-        <button class="paginas" onclick="abrirPagina(event, 'Alumnos')"><i class='fas fa-book-reader'></i>
-            Alumnos</button>
-        <button class="paginas" onclick="abrirPagina(event, 'Asignaciones')"><i class='fas fa-address-card'></i>
-            Asignaciones</button>
-        <button class="paginas" onclick="abrirPagina(event, 'Actividades')"><i class='far fa-edit'></i>
-            Actividades Semanales</button>
+        <button class="paginas" onclick="abrirPagina(event, 'Inicio')" id="defaultOpen">
+            <i class='fas fa-home'></i>
+            Inicio
+        </button>
+        <button class="paginas" onclick="abrirPagina(event, 'Actividades')">
+            <i class='far fa-edit'></i>
+            Actividades Semanales
+        </button>
+        <button class="paginas" onclick="abrirPagina(event, 'Profesores')">
+            <i class='fas fa-chalkboard-teacher'></i>
+            Profesores
+        </button>
+        <button class="paginas" onclick="abrirPagina(event, 'Empresas')">
+            <i class='fas fa-briefcase'></i>
+            Empresas
+        </button>
+        <button class="paginas" onclick="abrirPagina(event, 'Alumnos')">
+            <i class='fas fa-book-reader'></i>
+            Alumnos
+        </button>
+        <button class="paginas" onclick="abrirPagina(event, 'Asignaciones')">
+            <i class='fas fa-address-card'></i>
+            Asignaciones
+        </button>
     </div>
+
     <div id="Inicio" class="contenido">
-        <div class="slideshow-container">
+        <div class="imagenes">
 
-            <div class="mySlides fade">
-                <div class="numbertext">1 / 3</div>
-                <img src="../Proyecto-Javascript/imagenes/img1.jpg" style="width:100%">
-                <div class="text">Prácticas informaticas</div>
+            <div class="misImagenes">
+                <div class="numero">1 / 3</div>
+                <img src="imagenes/img1.jpg" >
+                <div class="texto">Prácticas informaticas</div>
             </div>
 
-            <div class="mySlides fade">
-                <div class="numbertext">2 / 3</div>
-                <img src="../Proyecto-Javascript/imagenes/img2.jpg" style="width:100%">
-                <div class="text">Prácticas informaticas</div>
+            <div class="misImagenes">
+                <div class="numero">2 / 3</div>
+                <img src="imagenes/img2.jpg">
+                <div class="texto">Prácticas informaticas</div>
             </div>
 
-            <div class="mySlides fade">
-                <div class="numbertext">3 / 3</div>
-                <img src="../Proyecto-Javascript/imagenes/img3.jpg" style="width:100%">
-                <div class="text">Prácticas informaticas</div>
+            <div class="misImagenes">
+                <div class="numero">3 / 3</div>
+                <img src="imagenes/img3.jpg">
+                <div class="texto">Prácticas informaticas</div>
             </div>
 
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -58,7 +71,7 @@
         </div>
         <br>
 
-        <div style="text-align:center">
+        <div class="puntitos" >
             <span class="dot" onclick="currentSlide(1)"></span>
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
@@ -66,6 +79,7 @@
 
 
     </div>
+
     <div id="Profesores" class="contenido">
         <h3>Profesores</h3>
         <table class="tabla" id="tbProfesores">
@@ -77,13 +91,15 @@
                 </tr>
             </thead>
             <tbody id="tbBodyProfesores">
-                <tr>
-                    <td><span class="nombre">Juan</span></td>
-                    <td><span class="apellidos">Ruiz</span></td>
-                </tr>
-
+                    <tr>
+                        <td>Juan</td>
+                        <td>Ruiz</td>
+                        
+                    </tr>
+    
             </tbody>
         </table>
+
         <!--Dialogo modal Profesores-->
         <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="modalProfesor"
             aria-hidden="true">
@@ -109,18 +125,16 @@
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
                         <button class="botonAñadir" onclick="añadirProfesor()">Añadir </button>
-                        <button type="button" class="botonAñadir" data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="text-left">
-            <a href="" class="botonAñadir" data-toggle="modal" data-target="#modalContactForm">
-                Añadir</a>
+            <a href="" class="botonAñadir" data-toggle="modal" data-target="#modalContactForm">Añadir</a>
         </div>
     </div>
+
     <div id="Empresas" class="contenido">
-        <span class="cerrar" onclick="cerrarEmpresa()">&times;</span>
         <h3>Empresas</h3>
         <table class="tabla">
             <thead>
@@ -135,7 +149,7 @@
 
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="tbBodyEmpresas">
                 <tr>
                     <td>LG</td>
                     <td> https://www.lg.com/es</td>
@@ -164,46 +178,46 @@
                         <h4 class="modal-title">Añadir Empresa</h4>
                     </div>
                     <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="form34">Nombre</label>
-                        <input type="text" id="form34" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="">Nombre</label>
+                        <input type="text" id="inNuevaEmpresaNombre" class="form-control validate">
 
                     </div>
                     <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="form34">Apellidos</label>
-                        <input type="text" id="form34" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="">Web</label>
+                        <input type="text" id="inNuevaEmpresaWeb" class="form-control validate">
 
                     </div>
                     <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="form34">Dirección</label>
-                        <input type="text" id="form34" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="">Dirección</label>
+                        <input type="text" id="inNuevaEmpresaDireccion" class="form-control validate">
 
                     </div>
                     <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="form34">Telefono</label>
-                        <input type="number" id="form34" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="">Telefono</label>
+                        <input type="number" id="inNuevaEmpresaTelefono" class="form-control validate">
 
                     </div>
                     <div class="md-form mb-5">
 
                         <label data-error="wrong" data-success="right" for="defaultForm-email">Email</label>
-                        <input type="email" id="defaultForm-email" class="form-control validate">
+                        <input type="email" id="inNuevaEmpresaEmail" class="form-control validate">
 
 
                     </div>
                     <div class="md-form mb-5">
-                        <label data-error="wrong" data-success="right" for="form34">Tutor</label>
-                        <input type="text" id="form34" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="">Tutor</label>
+                        <input type="text" id="inNuevaEmpresaTutor" class="form-control validate">
 
                     </div>
                     <div class="md-form mb-5">
 
                         <label data-error="wrong" data-success="right" for="defaultForm-email">Email Tutor</label>
-                        <input type="email" id="defaultForm-email" class="form-control validate">
+                        <input type="email" id="inNuevaEmpresaEmailTutor" class="form-control validate">
 
                     </div>
                     <div class="modal-footer">
                         <button class="botonAñadir" onclick="añadirEmpresa()">Añadir</button>
-                        <button type="button" class="botonAñadir" data-dismiss="modal">Cerrar</button>
+                        
                     </div>
                 </div>
 
@@ -211,9 +225,7 @@
         </div>
     </div>
 
-
     <div id="Alumnos" class="contenido">
-        <span class="cerrar" onclick="cerrarAlumno()">&times;</span>
         <h3>Alumnos</h3>
         <table class="tabla">
             <thead>
@@ -225,11 +237,11 @@
 
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="tbBodyAlumnos">
                 <tr>
                     <td>Pedro</td>
                     <td>Perez</td>
-                    <td>1º</td>
+                    <td>2º</td>
                     <td>ASIR</td>
 
                 </tr>
@@ -245,7 +257,6 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content1">
                     <!--Header-->
-
                     <!--Body-->
                     <div class="modal-body">
 
@@ -257,21 +268,24 @@
                         </div>
                         <div class="modal-body mx-3">
                             <div class="md-form mb-5">
-                                <label data-error="wrong" data-success="right" for="form34">Nombre</label>
-                                <input type="text" id="form34" class="form-control validate">
+                                <label data-error="wrong" data-success="right" for="">Nombre</label>
+                                <input type="text" id="inNuevoAlumnoNombre" class="form-control validate">
 
                             </div>
                             <div class="md-form mb-5">
-                                <label data-error="wrong" data-success="right" for="form34">Apellidos</label>
-                                <input type="text" id="form34" class="form-control validate">
+                                <label data-error="wrong" data-success="right" for="">Apellidos</label>
+                                <input type="text" id="inNuevoAlumnoApellidos" class="form-control validate">
 
                             </div>
                             <div class="md-form mb-5">
-                                <label for=""> Curso</label> <select name="grado" id="ActividadesGrado">
-                                    <option value="gradoSuperior">1º</option>
-                                    <option value="gradoMedio"> 2º </option>
+                                <label for=""> Curso</label> <select name="curso" id="seCurso">
+                                    <option value="1º">1º</option>
+                                    <option value="2º"> 2º </option>
                                 </select>
-                                <label for="">Grado</label> <input type="text" id="CicloFormativo">
+                                <label for="">Grado</label> <select name="curso" id="seGrado">
+                                    <option value="Superior">Superior</option>
+                                    <option value="Medio"> Medio </option>
+                                </select>
 
                             </div>
                         </div>
@@ -279,7 +293,7 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer">
-                        <button type="button" class="botonAñadir" data-dismiss="modal">Cerrar</button>
+                        
                         <button class="botonAñadir" onclick="añadirAlumno()">Añadir</button>
                     </div>
                 </div>
@@ -287,16 +301,35 @@
         </div>
     </div>
 
-
     <div id="Asignaciones" class="contenido">
-        <span class="cerrar" onclick="cerrarAsignacion()">&times;</span>
-
         <h3>Asignaciones</h3>
-
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tutor Laboral</th>
+                        <th>Tutor Docente</th>
+                        <th>Fecha de Inicio</th>
+                        <th>Fecha de Fin</th>
+                    </tr>
+                </thead>
+                <tbody id="tbBodyAsignacion">
+                    <tr>
+                        <td>Pedro Perez</td>
+                        <td> Juan</td>
+                        <td>Antonio</td>
+                        <td>04/05/2020</td>
+                        <td>29/05/2020</td>
+            
+            
+                    </tr>
+            
+                </tbody>
+            </table>
         <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="modalAsignacion"
             aria-hidden="true">
             <div id="modalAsignacion" class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content1">
                     <div class="modal-header text-center">
                         <h4 class="modal-title w-100 font-weight-bold">Añadir Asignaciones</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -305,37 +338,30 @@
                     </div>
                     <div class="modal-body mx-3">
                         <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="form34">Alumno</label>
-                            <input type="text" id="orangeForm-name" class="form-control validate">
+                            <label data-error="wrong" data-success="right" for="">Alumno</label>
+                            <input type="text" id="inNuevaAsignacionNombre" class="form-control validate">
 
                         </div>
                         <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="form34">Empresa</label>
-                            <input type="text" id="orangeForm-name" class="form-control validate">
+                            <label data-error="wrong" data-success="right" for="">Tutor Laboral</label>
+                            <input type="text" id="inNuevaAsignacionTutorLaboral" class="form-control validate">
                         </div>
                         <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="form34">Tutor</label>
-                            <input type="text" id="orangeForm-name" class="form-control validate">
+                            <label data-error="wrong" data-success="right" for="">Tutor Docente</label>
+                            <input type="text" id="inNuevaAsignacionTutorLaboral" class="form-control validate">
                         </div>
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="">Fecha de Inicio</label>
-                            <input type="date" id="orangeForm-name" class="form-control validate">
+                            <input type="date" id="inNuevasignacionFechaInicio" class="form-control validate">
                         </div>
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="">Fecha fin</label>
-                            <input type="date" id="orangeForm-name" class="form-control validate">
+                            <input type="date" id="inNuevasignacionFechaFin" class="form-control validate">
                         </div>
-                        <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
-                            <input type="email" id="orangeForm-email" class="form-control validate">
-
-                        </div>
-
-
-
+                        
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button class="botonAñadir">Añadir</button>
+                        <button class="botonAñadir" onclick="añadirAsignacion()">Añadir</button>
                     </div>
                 </div>
             </div>
@@ -345,118 +371,146 @@
             <a href="" class="botonAñadir" data-toggle="modal" data-target="#modalRegisterForm">Añadir</a>
         </div>
     </div>
+
     <div id="Actividades" class="contenido">
-        <h3>Actividades Semanales</h3>
-        <!-- Button trigger modal -->
-        <button type="button" class="botonAñadir" data-toggle="modal" data-target="#modalActividad">
-            Añadir
-        </button>
+    
+        <div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="modalActividad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Añadir Actividad Semanal</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="">
-                            <table id="CabeceraTabla">
-                                <tr>
-                                    <td><label for="">Semana del</label> <input type="text" id="1dia" class="fecha">
-                                        </input><label for=""> al
-                                        </label> <input type="text" id="2dia" class="fecha"><label for=""> de </label>
-                                        <input type="text" class="fecha" id="mesAct"><label for=""> del año </label>
-                                        <input type="text" class="fecha" id="año">
-                                    </td>
+            <div id="fmActividadesSemanales">
 
-                                </tr>
-                                <tr>
-                                    <td class="centro1"><label for="">Centro Docente</label><input type="text"
-                                            id="Centro"> <br>
-                                        <label for="">Pofesor/a Responsable</label> <input type="text" id="ProfesorAct">
-                                    </td>
-                                    <td class="centro1"><label for="">Centro de Trabajo </label> <input type="text"
-                                            id="CentroTrabajo"><br> <label for=""> Tutor/a del Centro de
-                                            Trabajo</label><input type="text" id="tutorEmpresa"></td>
+                <table id="CabeceraTabla" class="tablaAct">
+                    <tr id="trAlumno">
+                        <td>
+                            <label for="">Alumno:</label>
+                            <select id="slAlumnoActividad" class="seAlumnos">
+                                <option value="Alumno">Miguel Rodríguez</option>
+                                <option value="Alumno">María Ruiz</option>
+                                <option value="Alumno">Pablo Castillo</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr id="trCiclo">
+                        <td class="centro1">
+                            <label for="">Ciclo</label>
+                            <input type="text" id="lbActCiclo" disabled>
+                        </td>
+                        <td>
+                            <label for="">Tutor Laboral</label>
+                            <input type="text" id="lbActTutorLaboral" disabled>
+                        </td>
+                    </tr>
+                    <tr id="trGrado">
+                        <td class="centro1">
+                            <label for="">Grado</label>
+                            <input type="text" id="lbActGrado" disabled>
+                        </td>
+                        <td>
+                            <label for="">Empresa</label>
+                            <input type="text" id="lbActEmpresa" disabled>
+                        </td>
+                    </tr>
+                    <tr id="trProfesor">
+                        <td class="centro1">
+                            <label for="">Profesor</label>
+                            <input type="text" id="lbActProfesor" disabled>
+                        </td>
+                        <td>
+                            <label for="">CentroTrabajo</label>
+                            <input type="text" id="lbActCentroTrabajo" disabled>
+                        </td>
+                    </tr>
+                </table>
 
-                                </tr>
-                                <tr>
-                                    <td class="centro1"><label for="">Alumno/a</label> <input type="text"
-                                            id="ActividadAlumno"></td>
-                                    <td class="centro1"><label for="">Ciclo Formativo</label> <input type="text"
-                                            id="CicloFormativo"> <label for="">Grado</label> <select name="grado"
-                                            id="ActividadesGrado">
-                                            <option value="gradoSuperior">Superior</option>
-                                            <option value="gradoMedio"> Medio </option>
-                                        </select></td>
-                                </tr>
-                            </table>
-                        </form>
-                        <form action="" class="formularioDia">
-                            <table id="ContenidoTablaAct">
-                                <tr class="cabeceraContenido">
-                                    <td> <label for="">Día</label></td>
-                                    <td><label for="">Actividad desarrollada</label></td>
-                                    <td><label for="">Tiempo empleado</label></td>
-                                    <td><label for="">Observaciones</label></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Lunes</label></td>
-                                    <td><input type="text" id="actividadesRealizadasLunes"
-                                            class="actividadesRealizadas"></td>
-                                    <td><input type="text" id="tiempoEmpleadoLunes" class="actividadesRealizadas"></td>
-                                    <td><input type="text" id="observacionesLunes" class="actividadesRealizadas"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Martes</label></td>
-                                    <td><input type="text" id="actividadesRealizadasMartes"
-                                            class="actividadesRealizadas"></td>
-                                    <td><input type="text" id="tiempoEmpleadoMartes" class="actividadesRealizadas"></td>
-                                    <td><input type="text" id="observacionesMartes" class="actividadesRealizadas"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Miercoles</label></td>
-                                    <td><input type="text" id="actividadesRealizadasMiercoles"
-                                            class="actividadesRealizadas"></td>
-                                    <td><input type="text" id="tiempoEmpleadoMiercoles" class="actividadesRealizadas">
-                                    </td>
-                                    <td><input type="text" id="observacionesMiercoles" class="actividadesRealizadas">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Jueves</label></td>
-                                    <td><input type="text" id="actividadesRealizadasJueves"
-                                            class="actividadesRealizadas"></td>
-                                    <td><input type="text" id="tiempoEmpleadoJueves" class="actividadesRealizadas"></td>
-                                    <td><input type="text" id="observacionesJueves" class="actividadesRealizadas"></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="">Viernes</label></td>
-                                    <td><input type="text" id="actividadesRealizadasViernes"
-                                            class="actividadesRealizadas"></td>
-                                    <td><input type="text" id="tiempoEmpleadoViernes" class="actividadesRealizadas">
-                                    </td>
-                                    <td><input type="text" id="observacionesViernes" class="actividadesRealizadas"></td>
-                                </tr> <br>
-
-                            </table>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="botonAñadir" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="botonAñadir">Añadir</button>
-                    </div>
-                </div>
             </div>
+
+            <form>
+                <div class="tareas">
+                    <label>Total Horas realizadas</label>
+                    <span id="lbActTotalHoras" class="HorasRealizadas">0</span>
+                </div>
+                <div  class="tareas">
+                    <label>Fecha de Inicio</label>
+                    <input id="inActFechaInicio" type="date" class="inputFecha" value=""
+                        onchange="cambiarFechaInicioActividad()" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="botonAñadir">Guardar</button>
+                </div>
+                <table id="ContenidoTablaAct" class="tablaAct">
+                    <thead>
+                        <tr class="cabeceraContenido">
+                            <td class="tdDiasHoras"> <label for="">Día</label></td>
+                            <td><label class="lbActividades" for="">Actividades</label></td>
+                            <td  class="tdDiasHoras"><label for="">Horas</label></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td  class="tdDiasHoras">
+                                <span id="lbActFecha-0"></span>
+                            </td>
+                            <td class="tdHoras">
+                                <textarea id="taActDescripcion-0" rows="10"></textarea>
+                            </td>
+                            <td class="tdHoras">
+                                <input type="text" id="inActHoras-0">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  class="tdDiasHoras">
+                                <span id="lbActFecha-1"></span>
+                            </td>
+                            <td class="tdHoras">
+                                <textarea id="taActDescripcion-1" rows="10"></textarea>
+                            </td>
+                            <td class="tdHoras">
+                                <input type="text" id="inActHoras-1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  class="tdDiasHoras">
+                                <span id="lbActFecha-2"></span>
+                            </td>
+                            <td class="tdHoras">
+                                <textarea id="taActDescripcion-2" rows="10"></textarea>
+                            </td>
+                            <td  class="tdHoras">
+                                <input type="text" id="inActHoras-2">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  class="tdDiasHoras">
+                                <span id="lbActFecha-3"></span>
+                            </td>
+                            <td  class="tdHoras">
+                                <textarea id="taActDescripcion-3" rows="10"></textarea>
+                            </td>
+                            <td  class="tdHoras">
+                                <input type="text" id="inActHoras-3">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  class="tdDiasHoras">
+                                <span id="lbActFecha-4"></span>
+                            </td>
+                            <td  class="tdHoras">
+                                <textarea id="taActDescripcion-4" rows="10"></textarea>
+                            </td>
+                            <td class="tdHoras">
+                                <input type="text" id="inActHoras-4">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+
         </div>
+
+        
     </div>
 
+    <script type="text/javascript" src="javascript/codigo.js"></script>
+
 </body>
-<script type="text/javascript" src="../Proyecto-Javascript/javascript/codigo.js"></script>
 
 </html>

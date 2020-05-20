@@ -1,6 +1,4 @@
-
-
-/*funcion de visualizacion y navegacion por las diferentes paginas*/
+/*funcion de visualizacion y navegacion por las diferentes paginas del menu*/
 function abrirPagina(evt, nombre) {
     var i, contenido, paginas;
     contenido = document.getElementsByClassName("contenido");
@@ -14,122 +12,148 @@ function abrirPagina(evt, nombre) {
     document.getElementById(nombre).style.display = "block";
     evt.currentTarget.className += " active";
 }
-
-// Muestra por defecto la pagina de Actividades
-document.getElementById("defaultOpen").click();
-
-
-// El modal
-var modal = document.getElementById("ventana");
-
-    // Boton para abrir el modal
-var boton = document.getElementById("boton");
-var botonCerrar = document.getElementById("botonCerrar");
-// para cerrar
-    var span = document.getElementsByClassName("cerrar")[0];
-
-
-
-
-function añadirActividadSemanal() {
-    var dia1 = document.getElementById("1dia").Value;
-    var dia2 = document.getElementById("2dia").Value;
-    var mes = document.getElementById("mesAct").Value;
-    var año = document.getElementById("año").Value;
-    var validar = validarDia(dia1, mes, año);
-    var dias = dia2 - dia1;
-    if (validar != "lun" || dias != 7) {
-        alert("El día debe de empezar en Lunes o la semana no cuenta con 7 días")
-        
-    }
-}
-function Actividades(dia, actividades, horas) {
-    this.dia = dia;
-    this.actividades = actividades;
-    this.horas = horas;   
-}
-function Profesor(nombreProfesor, apellidosProfesor){
-    this.nombreProfesor = nombreProfesor;
-    this.apellidosProfesor = apellidosProfesor;
-}
-function Empresa(nombreEmpresa, web, direccion, telefono, email, tutor, emailTutor ){
-    this.nombreEmpresa = nombreEmpresa;
-    this.web = web;
-    this.direccion = direccion;
-    this.telefono = telefono;
-    this.email = email;
-    this.tutor = tutor;
-    this.emailTutor = emailTutor;
-}
-function Asignacion(nombre, empresa, tutor, fechaInicio, fechaFin) {
-    this.nombre = nombre;
-    this.empresa = empresa;
-    this.tutor = tutor;
-    this.fechaInicio = fechaInicio;
-    this.fechaFin = fechaFin;
-}
-function Alumno(nombreAlumno, apellidosAlumno, curso, ciclo) {
-    this.nombreAlumno = nombreAlumno;
-    this.apellidosAlumno = apellidosAlumno;
-    this.curso = curso;
-    this.ciclo = ciclo;
-    
-}
-function cerrarActividad() {
-    document.getElementById("modalActividad").style.display = "none";
-
-}
-function cerrarEmpresa() {
-    document.getElementById("modalEmpresa").style.display = "none";
-
-}
-function cerrarAlumno() {
-    document.getElementById("modalAlumno").style.display = "none";
-
-}
-function cerrarProfesor() {
-    document.getElementById("modalProfesor").style.display = "none";
-
-}
-function cerrarAsignacion() {
-    document.getElementById("modalAsignacion").style.display = "none";
-
-}
 function añadirProfesor() {
-    Profesor(document.getElementById("inNuevoNombreProfesor").value, document.getElementById("inNuevoApellidosProfesor").value);
-    document.getElementById("lbNombreProfesor").innerHTML = this.nombreProfesor;
-    document.getElementById("lbApellidosProfesor").innerHTML = this.apellidosProfesor;
+// Añade una fila nueva a la tabla con el nuevo profesor
+    añadirProfesorTabla(document.getElementById("inNuevoNombreProfesor").value,
+   document.getElementById("inNuevoApellidosProfesor").value);
+}
+
+function añadirProfesorTabla(nombre, apellidos) {
+//Creamos los elementos que se van añadir en las nuevas filas que crearemos de la tabla.
+    var tbBody = document.getElementById("tbBodyProfesores");
+
+    var tr = document.createElement("tr");
+    var tdNombre = document.createElement("td");
+    var tdApellidos = document.createElement("td");
+//le asignamos a cada variable el contenido a añadir
+    tdNombre.className = "nombre";
+    tdApellidos.className = "apellidos";
+
+    tdNombre.innerHTML = nombre;
+    tdApellidos.innerHTML = apellidos;
+//nos añade el nuevo profesor a nuestra tabla previamente creada pero nos crea filas nuevas
+    tr.appendChild(tdNombre);
+    tr.appendChild(tdApellidos);
+    tbBody.appendChild(tr);
 }
 
 function añadirAlumno() {
-    document.getElementById("modalAlumno").style.display = "block";
+    añadirAlumnoTabla(document.getElementById("inNuevoAlumnoNombre").value,
+                      document.getElementById("inNuevoAlumnoApellidos").value,
+                      document.getElementById("seCurso").value,
+                      document.getElementById("seGrado").value);
+        
+}
+function añadirAlumnoTabla(nombre, apellidos, curso, ciclo) {
+//Creamos los elementos que se van añadir en las nuevas filas que crearemos de la tabla.
+    var tbBody = document.getElementById("tbBodyAlumnos");
 
+    var tr = document.createElement("tr");
+    var tdNombre = document.createElement("td");
+    var tdApellidos = document.createElement("td");
+    var tdCurso = document.createElement("td");
+    var tdCiclo = document.createElement("td");
+//le asignamos a cada variable el contenido a añadir
+    tdNombre.innerHTML = nombre;
+    tdApellidos.innerHTML = apellidos;
+    tdCurso.innerHTML = curso;
+    tdCiclo.innerHTML = ciclo;
+    
+//nos añade el nuevo alumno a nuestra tabla previamente creada pero nos crea filas nuevas
+    tr.appendChild(tdNombre);
+    tr.appendChild(tdApellidos);
+    tr.appendChild(tdCurso);
+    tr.appendChild(tdCiclo);
+    tbBody.appendChild(tr);
+    
 }
 function añadirAsignacion() {
-    document.getElementById("modalAsignacion").style.display = "block";
-
+    añadirAsignacionTabla(document.getElementById("inNuevaAsignacionNombre").value,
+        document.getElementById("inNuevaAsignacionTutorLaboral").value,
+        document.getElementById("inNuevaAsignacionTutorLaboral").value,
+        document.getElementById("inNuevasignacionFechaInicio").value,
+        document.getElementById("inNuevasignacionFechaFin").value,)
+        
 }
+function añadirAsignacionTabla(nombre, tutorLaborar, tutorDocente, fechaInicio, fechaFin) {
+
+    var tbBody = document.getElementById("tbBodyAsignacion");
+
+    var tr = document.createElement("tr");
+    var tdNombre = document.createElement("td");
+    var tdTutorLaborar = document.createElement("td");
+    var tdTutorDocente = document.createElement("td");
+    var tdfechaInicio = document.createElement("td");
+    var tdfechaFin = document.createElement("td");
+    
+
+    tdNombre.innerHTML = nombre;
+    tdTutorLaborar.innerHTML = tutorLaborar;
+    tdTutorDocente.innerHTML = tutorDocente;
+    tdfechaInicio.innerHTML = fechaInicio;
+    tdfechaFin.innerHTML = fechaFin;
+  
+
+    tr.appendChild(tdNombre);
+    tr.appendChild(tdTutorLaborar);
+    tr.appendChild(tdTutorDocente);
+    tr.appendChild(tdfechaInicio);
+    tr.appendChild(tdfechaFin);
+    tbBody.appendChild(tr);
+}
+
 function añadirEmpresa() {
-    document.getElementById("modalEmpresa").style.display = "block";
-
+    añadirEmpresaTabla(document.getElementById("inNuevaEmpresaNombre").value,
+        document.getElementById("inNuevaEmpresaWeb").value,
+        document.getElementById("inNuevaEmpresaDireccion").value,
+        document.getElementById("inNuevaEmpresaTelefono").value,
+        document.getElementById("inNuevaEmpresaEmail").value,
+        document.getElementById("inNuevaEmpresaTutor").value,
+        document.getElementById("inNuevaEmpresaEmailTutor").value);
 }
-function añadirActividad() {
-    document.getElementById("modalEmpresa").style.display = "block";
 
+function añadirEmpresaTabla(nombre, web, direccion, telefono, email, tutor, emailTutor) {
+
+    var tbBody = document.getElementById("tbBodyEmpresas");
+
+    var tr = document.createElement("tr");
+    var tdNombre = document.createElement("td");
+    var tdWeb = document.createElement("td");
+    var tdDireccion = document.createElement("td");
+    var tdTelefono = document.createElement("td");
+    var tdEmail = document.createElement("td");
+    var tdTutor = document.createElement("td");
+    var tdEmailTutor = document.createElement("td");
+
+    tdNombre.innerHTML = nombre;
+    tdWeb.innerHTML = web;
+    tdDireccion.innerHTML = direccion;
+    tdTelefono.innerHTML = telefono;
+    tdEmail.innerHTML = email;
+    tdTutor.innerHTML = tutor;
+    tdEmailTutor.innerHTML = emailTutor;
+
+    tr.appendChild(tdNombre);
+    tr.appendChild(tdWeb);
+    tr.appendChild(tdDireccion);
+    tr.appendChild(tdTelefono);
+    tr.appendChild(tdEmail);
+    tr.appendChild(tdTutor);
+    tr.appendChild(tdEmailTutor);
+    tbBody.appendChild(tr);
 }
-
-
-
-
-
-
-
-
-
 
 /*slide imagenes*/
+
 var slideIndex = 1;
 showSlides(slideIndex);
+
+setTimeout(avanzar, 3000);
+
+function avanzar() {
+    plusSlides(1);
+    setTimeout(avanzar, 3000);
+}
 
 function plusSlides(n) {
     showSlides(slideIndex += n);
@@ -141,10 +165,10 @@ function currentSlide(n) {
 
 function showSlides(n) {
     var i;
-    var slides = document.getElementsByClassName("mySlides");
+    var slides = document.getElementsByClassName("misImagenes");
     var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
+    if (n > slides.length) { slideIndex = 1; }
+    if (n < 1) { slideIndex = slides.length; }
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
