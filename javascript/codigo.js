@@ -17,37 +17,39 @@ document.getElementById("defaultOpen").click();
 
 //slide imagenes
 var primeraImagen = 1;
-showSlides(primeraImagen);
+mostrarImegenes(primeraImagen);
 
 setTimeout(avanzar, 3000);
 // cuando seleccionamos la imagen 1 esperamos 3 segundos y avanza a la siguiente imagen
 function avanzar() {
-    plusSlides(1);
+    pasarImagen(1);
     setTimeout(avanzar, 3000);
 }
 //Al pinchar en la flecha pasamos a la siguiente imagen
-function plusSlides(n) {
-    showSlides(primeraImagen += n);
+function pasarImagen(n) {
+    mostrarImegenes(primeraImagen += n);
 }
 //al pinchar en los puntitos pasamos a la siguiente imagen
-function currentSlide(n) {
-    showSlides(primeraImagen = n);
+function imagenActual(n) {
+    mostrarImegenes(primeraImagen = n);
 }
-//funcion para mostrar las imagenes cada 3 segundos
-function showSlides(n) {
+// Mostrar las imagenes
+function mostrarImegenes(n) {
     var i;
-    var slides = document.getElementsByClassName("misImagenes");
-    var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) { primeraImagen = 1; }
-    if (n < 1) { primeraImagen = slides.length; }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+    var imagenes = document.getElementsByClassName("misImagenes");
+    var puntos = document.getElementsByClassName("punto");
+    
+    if (n > imagenes.length) { primeraImagen = 1; }
+    if (n < 1) { primeraImagen = imagenes.length; }
+    for (i = 0; i < imagenes.length; i++) {
+        imagenes[i].style.display = "none";
     }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
+    for (i = 0; i < puntos.length; i++) {
+        puntos[i].className = puntos[i].className.replace(" active", "");
     }
-    slides[primeraImagen - 1].style.display = "block";
-    dots[primeraImagen - 1].className += " active";
+    //Muestra la imagen y el punto correspondiente esta activo
+    imagenes[primeraImagen - 1].style.display = "block";
+    puntos[primeraImagen - 1].className += " active";
 }
 
 //Añadir Profesor
