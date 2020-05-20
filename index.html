@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proyecto JavaScript</title>
-<script src='https://kit.fontawesome.com/a076d05399.js'></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="css/style.css">
+    <title>Proyecto JavaScript</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!-- Para los dialogos modales he usado librerias externas aunque he modificado algo el estilo -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -262,9 +264,9 @@
                     <div class="modal-body">
                         <div class="modal-header text-center">
                             <h4 class="modal-title w-100 font-weight-bold">Añadir un Alumno</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         <div class="modal-body mx-3">
                             <div class="md-form mb-5">
@@ -383,9 +385,7 @@
                         <td>
                             <label for="">Alumno:</label>
                             <select id="slAlumnoActividad" class="seAlumnos" onchange="cambiarAlumnoActividad(this)">
-                                <option value="Alumno">Miguel Rodríguez</option>
-                                <option value="Alumno">María Ruiz</option>
-                                <option value="Alumno">Pablo Castillo</option>
+
                             </select>
                         </td>
                     </tr>
@@ -510,7 +510,6 @@
     </div>
 
     <script type="text/javascript" src="javascript/codigo.js"></script>
-
 </body>
 
 </html>
