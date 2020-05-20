@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto JavaScript</title>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+<title>Proyecto JavaScript</title>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -49,7 +48,7 @@
 
             <div class="misImagenes">
                 <div class="numero">1 / 3</div>
-                <img src="imagenes/img1.jpg" >
+                <img src="imagenes/img1.jpg">
                 <div class="texto">Prácticas informaticas</div>
             </div>
 
@@ -71,7 +70,7 @@
         </div>
         <br>
 
-        <div class="puntitos" >
+        <div class="puntitos">
             <span class="dot" onclick="currentSlide(1)"></span>
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
@@ -91,12 +90,12 @@
                 </tr>
             </thead>
             <tbody id="tbBodyProfesores">
-                    <tr>
-                        <td>Juan</td>
-                        <td>Ruiz</td>
-                        
-                    </tr>
-    
+                <tr>
+                    <td>Juan</td>
+                    <td>Ruiz</td>
+
+                </tr>
+
             </tbody>
         </table>
 
@@ -217,7 +216,7 @@
                     </div>
                     <div class="modal-footer">
                         <button class="botonAñadir" onclick="añadirEmpresa()">Añadir</button>
-                        
+
                     </div>
                 </div>
 
@@ -293,7 +292,7 @@
                     </div>
                     <!--Footer-->
                     <div class="modal-footer">
-                        
+
                         <button class="botonAñadir" onclick="añadirAlumno()">Añadir</button>
                     </div>
                 </div>
@@ -303,29 +302,29 @@
 
     <div id="Asignaciones" class="contenido">
         <h3>Asignaciones</h3>
-            <table class="tabla">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Tutor Laboral</th>
-                        <th>Tutor Docente</th>
-                        <th>Fecha de Inicio</th>
-                        <th>Fecha de Fin</th>
-                    </tr>
-                </thead>
-                <tbody id="tbBodyAsignacion">
-                    <tr>
-                        <td>Pedro Perez</td>
-                        <td> Juan</td>
-                        <td>Antonio</td>
-                        <td>04/05/2020</td>
-                        <td>29/05/2020</td>
-            
-            
-                    </tr>
-            
-                </tbody>
-            </table>
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tutor Laboral</th>
+                    <th>Tutor Docente</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha de Fin</th>
+                </tr>
+            </thead>
+            <tbody id="tbBodyAsignacion">
+                <tr>
+                    <td>Pedro Perez</td>
+                    <td> Juan</td>
+                    <td>Antonio</td>
+                    <td>04/05/2020</td>
+                    <td>29/05/2020</td>
+
+
+                </tr>
+
+            </tbody>
+        </table>
         <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="modalAsignacion"
             aria-hidden="true">
             <div id="modalAsignacion" class="modal-dialog" role="document">
@@ -348,7 +347,7 @@
                         </div>
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="">Tutor Docente</label>
-                            <input type="text" id="inNuevaAsignacionTutorLaboral" class="form-control validate">
+                            <input type="text" id="inNuevaAsignacionTutorDocente" class="form-control validate">
                         </div>
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="">Fecha de Inicio</label>
@@ -358,7 +357,7 @@
                             <label data-error="wrong" data-success="right" for="">Fecha fin</label>
                             <input type="date" id="inNuevasignacionFechaFin" class="form-control validate">
                         </div>
-                        
+
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
                         <button class="botonAñadir" onclick="añadirAsignacion()">Añadir</button>
@@ -373,7 +372,7 @@
     </div>
 
     <div id="Actividades" class="contenido">
-    
+
         <div>
 
             <div id="fmActividadesSemanales">
@@ -382,7 +381,7 @@
                     <tr id="trAlumno">
                         <td>
                             <label for="">Alumno:</label>
-                            <select id="slAlumnoActividad" class="seAlumnos">
+                            <select id="slAlumnoActividad" class="seAlumnos" onchange="cambiarAlumnoActividad(this)">
                                 <option value="Alumno">Miguel Rodríguez</option>
                                 <option value="Alumno">María Ruiz</option>
                                 <option value="Alumno">Pablo Castillo</option>
@@ -428,7 +427,7 @@
                     <label>Total Horas realizadas</label>
                     <span id="lbActTotalHoras" class="HorasRealizadas">0</span>
                 </div>
-                <div  class="tareas">
+                <div class="tareas">
                     <label>Fecha de Inicio</label>
                     <input id="inActFechaInicio" type="date" class="inputFecha" value=""
                         onchange="cambiarFechaInicioActividad()" />
@@ -441,12 +440,12 @@
                         <tr class="cabeceraContenido">
                             <td class="tdDiasHoras"> <label for="">Día</label></td>
                             <td><label class="lbActividades" for="">Actividades</label></td>
-                            <td  class="tdDiasHoras"><label for="">Horas</label></td>
+                            <td class="tdDiasHoras"><label for="">Horas</label></td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td  class="tdDiasHoras">
+                            <td class="tdDiasHoras">
                                 <span id="lbActFecha-0"></span>
                             </td>
                             <td class="tdHoras">
@@ -457,7 +456,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td  class="tdDiasHoras">
+                            <td class="tdDiasHoras">
                                 <span id="lbActFecha-1"></span>
                             </td>
                             <td class="tdHoras">
@@ -468,32 +467,32 @@
                             </td>
                         </tr>
                         <tr>
-                            <td  class="tdDiasHoras">
+                            <td class="tdDiasHoras">
                                 <span id="lbActFecha-2"></span>
                             </td>
                             <td class="tdHoras">
                                 <textarea id="taActDescripcion-2" rows="10"></textarea>
                             </td>
-                            <td  class="tdHoras">
+                            <td class="tdHoras">
                                 <input type="text" id="inActHoras-2">
                             </td>
                         </tr>
                         <tr>
-                            <td  class="tdDiasHoras">
+                            <td class="tdDiasHoras">
                                 <span id="lbActFecha-3"></span>
                             </td>
-                            <td  class="tdHoras">
+                            <td class="tdHoras">
                                 <textarea id="taActDescripcion-3" rows="10"></textarea>
                             </td>
-                            <td  class="tdHoras">
+                            <td class="tdHoras">
                                 <input type="text" id="inActHoras-3">
                             </td>
                         </tr>
                         <tr>
-                            <td  class="tdDiasHoras">
+                            <td class="tdDiasHoras">
                                 <span id="lbActFecha-4"></span>
                             </td>
-                            <td  class="tdHoras">
+                            <td class="tdHoras">
                                 <textarea id="taActDescripcion-4" rows="10"></textarea>
                             </td>
                             <td class="tdHoras">
@@ -506,7 +505,7 @@
 
         </div>
 
-        
+
     </div>
 
     <script type="text/javascript" src="javascript/codigo.js"></script>
@@ -514,3 +513,4 @@
 </body>
 
 </html>
+    
